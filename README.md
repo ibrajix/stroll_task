@@ -1,4 +1,4 @@
-# ScrollTask
+# StrollTask
 
 ### Design
 <a href="https://www.figma.com/design/Hn10C6kYVAOKu9noB2bFOM/Front-End-Interview-Task?node-id=1-975&t=g9xex9Kx0WKQlt6I-0" target="_blank">Figma</a>
