@@ -15,4 +15,5 @@ class Assets {
 
   //png
   static const homeBg = "$otherImage/home_bg.png";
+  static const human = "$otherImage/human.png";
 }

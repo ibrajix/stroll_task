@@ -21,6 +21,9 @@ class _DashboardState extends State<Dashboard> {
       ),
     );
 
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: StrollColors.strollBlack,
       body: Stack(
@@ -72,7 +75,7 @@ class _DashboardState extends State<Dashboard> {
                   SvgPicture.asset(Assets.caretDown),
                 ],
               ),
-              const SizedBox(height: 14),
+              const SizedBox(height: 8),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -93,9 +96,37 @@ class _DashboardState extends State<Dashboard> {
                           fontSize: 12,
                           fontWeight: FontWeight.w600))
                 ],
-              )
+              ),
             ],
-          )
+          ),
+          Stack(
+            children: [
+              Positioned(
+                top: (screenHeight * 0.6) -
+                    45, // Centered below the background line
+                left: 20, // Positioned at the start
+                child: const CircleAvatar(
+                  radius: 45, // Adjust size of the rounded image
+                  backgroundImage:
+                      AssetImage(Assets.human), // Replace with your image
+                ),
+              ),
+              // Text Positioned on Top of Background
+              Positioned(
+                top: (screenHeight * 0.65) - 90,
+                left: 20 +
+                    90, // Adjust position to account for profile image and padding
+                child: const Text(
+                  'Angelina, 28',
+                  style: TextStyle(
+                    color: StrollColors.strollWhite,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
