@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stroll_task/features/bottom_nav/view/stroll_bottom_navigation.dart';
+import 'package:stroll_task/features/dashboard/cubit/dashboard_cubit.dart';
 import 'package:stroll_task/theme/theme_data.dart';
 
 import 'di/service_locator.dart';
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => sl<BottomNavCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => sl<DashboardCubit>(),
         ),
       ],
       child: MaterialApp(

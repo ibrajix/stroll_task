@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Message extends StatefulWidget {
   const Message({super.key});
@@ -10,6 +10,10 @@ class Message extends StatefulWidget {
 class _MessageState extends State<Message> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: Center(
+        child: Text('Message'),
+      ),
+    );
   }
 }

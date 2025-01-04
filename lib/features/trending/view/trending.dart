@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Trending extends StatefulWidget {
   const Trending({super.key});
@@ -10,6 +10,10 @@ class Trending extends StatefulWidget {
 class _TrendingState extends State<Trending> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: Center(
+        child: Text('Trending'),
+      ),
+    );
   }
 }

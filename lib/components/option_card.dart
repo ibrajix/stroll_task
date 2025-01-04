@@ -6,11 +6,13 @@ import 'circled_option.dart';
 class OptionsCard extends StatelessWidget {
   final String title;
   final bool isActive;
+  final String letter;
   final VoidCallback onTap;
 
   const OptionsCard({
     super.key,
     required this.title,
+    required this.letter,
     required this.isActive,
     required this.onTap,
   });
@@ -24,7 +26,7 @@ class OptionsCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: StrollColors.strollGrey,
           border: Border.all(
-            color: isActive ? Colors.blue : Colors.transparent,
+            color: isActive ? StrollColors.strollPurple : Colors.transparent,
             width: 2,
           ),
           borderRadius: BorderRadius.circular(12),
@@ -41,7 +43,7 @@ class OptionsCard extends StatelessWidget {
         child: Center(
           child: Row(
             children: [
-              CircleButton(letter: "A", isActive: isActive, onTap: onTap),
+              CircleButton(letter: letter, isActive: isActive, onTap: onTap),
               const SizedBox(width: 10),
               Expanded(
                 child: Text(

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stroll_task/constants/colors.dart';
 import 'package:stroll_task/constants/images.dart';
 
 import '../../../components/option_card.dart';
+import '../cubit/dashboard_cubit.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -33,6 +35,13 @@ class _DashboardState extends State<Dashboard> {
       "Calmness of the afternoon",
     ];
 
+    final List<String> optionsLetters = [
+      "A",
+      "B",
+      "C",
+      "D",
+    ];
+
     return Scaffold(
       backgroundColor: StrollColors.strollBlack,
       body: SingleChildScrollView(
@@ -51,7 +60,7 @@ class _DashboardState extends State<Dashboard> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 35),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -65,19 +74,19 @@ class _DashboardState extends State<Dashboard> {
                           shadows: [
                             Shadow(
                               color: Color(0x33000000),
-                              blurRadius: 7.9,
+                              blurRadius: 10,
                             ),
                             Shadow(
                               color: Color(0xFFBEBEBE),
-                              blurRadius: 2,
+                              blurRadius: 3,
                             ),
                             Shadow(
                               color: Color(0x8024232F),
-                              blurRadius: 2,
+                              blurRadius: 4,
                             ),
                             Shadow(
                               color: Color(0xFFB3ADF6),
-                              blurRadius: 0.32,
+                              blurRadius: 1.5,
                             ),
                           ],
                         ),
@@ -168,7 +177,7 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
               Positioned(
-                top: screenHeight * 0.51 + 80,
+                top: screenHeight * 0.51 + 70,
                 left: 20,
                 right: 20,
                 child: SizedBox(
@@ -185,17 +194,25 @@ class _DashboardState extends State<Dashboard> {
                       childAspectRatio: 2.5,
                     ),
                     itemBuilder: (context, index) {
-                      return OptionsCard(
-                        title: options[index],
-                        isActive: false,
-                        onTap: () {},
+                      return BlocBuilder<DashboardCubit, int?>(
+                        builder: (BuildContext context, state) {
+                          bool isActive = state == index;
+                          return OptionsCard(
+                            letter: optionsLetters[index],
+                            title: options[index],
+                            isActive: isActive,
+                            onTap: () {
+                              context.read<DashboardCubit>().setActive(index);
+                            },
+                          );
+                        },
                       );
                     },
                   ),
                 ),
               ),
               Positioned(
-                top: screenHeight * 0.51 + 270,
+                top: screenHeight * 0.51 + 255,
                 left: 20,
                 right: 20,
                 child: Row(
@@ -207,7 +224,7 @@ class _DashboardState extends State<Dashboard> {
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
                         )),
-                    Spacer(),
+                    const Spacer(),
                     Row(
                       children: [
                         SvgPicture.asset(Assets.speaker),

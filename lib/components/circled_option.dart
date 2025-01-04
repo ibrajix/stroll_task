@@ -37,7 +37,7 @@ class CircleButton extends StatelessWidget {
             letter,
             style: TextStyle(
               color: isActive
-                  ? StrollColors.strollPurple
+                  ? StrollColors.strollWhite
                   : StrollColors.strollGreyShade, // Text color
               fontSize: 12,
               fontWeight: FontWeight.bold,
