@@ -1,16 +1,15 @@
-# stroll_task
+# ScrollTask
 
-A new Flutter project.
+### Design
+<a href="https://www.figma.com/design/Hn10C6kYVAOKu9noB2bFOM/Front-End-Interview-Task?node-id=1-975&t=g9xex9Kx0WKQlt6I-0" target="_blank">Figma</a>
 
-## Getting Started
+### App Screenshots (Implementation) 🌈
 
-This project is a starting point for a Flutter application.
+<p>
+    <img src="https://github.com/user-attachments/assets/5983b2b5-bc32-4664-8454-d72dae2dc9dc" width="200px" hspace="10"/>
+    <img src="https://github.com/user-attachments/assets/56d934af-912f-4b6e-b251-82d6141111fa" width="200px" hspace="10"/>
+</p>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### BUILT WITH
+* Flutter (Dart)
+* BLOC (State Management)
