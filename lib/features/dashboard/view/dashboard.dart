@@ -176,12 +176,12 @@ class _DashboardState extends State<Dashboard> {
                   ),
                 ),
               ),
+              // Updated GridView to avoid overlap
               Positioned(
-                top: screenHeight * 0.51 + 35,
+                top: screenHeight * 0.55 + 30,
                 left: 20,
                 right: 20,
                 child: SizedBox(
-                  height: 300,
                   child: GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -212,7 +212,7 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
               Positioned(
-                top: screenHeight * 0.51 + 255,
+                top: screenHeight * 0.55 + 260,
                 left: 20,
                 right: 20,
                 child: Row(
