@@ -60,7 +60,7 @@ class _DashboardState extends State<Dashboard> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 35),
+                  const SizedBox(height: 50),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -177,7 +177,7 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
               Positioned(
-                top: screenHeight * 0.51 + 70,
+                top: screenHeight * 0.51 + 35,
                 left: 20,
                 right: 20,
                 child: SizedBox(
