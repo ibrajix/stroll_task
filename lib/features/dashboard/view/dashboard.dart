@@ -60,7 +60,7 @@ class _DashboardState extends State<Dashboard> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 60),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -162,7 +162,6 @@ class _DashboardState extends State<Dashboard> {
                   ),
                 ),
               ),
-              // Refactored layout using Column
               Positioned(
                 top: screenHeight * 0.55 + 30,
                 left: 0,
@@ -182,7 +181,9 @@ class _DashboardState extends State<Dashboard> {
                           fontStyle: FontStyle.italic,
                         ),
                       ),
+                      const SizedBox(height: 16),
                       GridView.builder(
+                        padding: EdgeInsets.zero,
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: options.length,
