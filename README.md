@@ -14,3 +14,7 @@
 ### BUILT WITH
 * Flutter (Dart)
 * BLOC (State Management)
+
+### Download 📱
+
+- [DOWNLOAD APK](https://github.com/ibrajix/stroll_task/releases/download/v1.0/app-release.apk/)
