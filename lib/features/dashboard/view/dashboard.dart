@@ -119,6 +119,7 @@ class _DashboardState extends State<Dashboard> {
                   ),
                 ],
               ),
+              // Human image and text remain positioned
               Positioned(
                 top: (screenHeight * 0.55) - 90,
                 left: 20,
@@ -161,80 +162,80 @@ class _DashboardState extends State<Dashboard> {
                   ),
                 ),
               ),
-              Positioned(
-                top: screenHeight * 0.51 + 60,
-                left: 20,
-                right: 20,
-                child: Text(
-                  '“Mine is definitely the peace in the morning.”',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: StrollColors.strollPurpleShade2.withOpacity(0.7),
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
-              ),
-              // Updated GridView to avoid overlap
+              // Refactored layout using Column
               Positioned(
                 top: screenHeight * 0.55 + 30,
-                left: 20,
-                right: 20,
-                child: SizedBox(
-                  child: GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: options.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      childAspectRatio: 2.5,
-                    ),
-                    itemBuilder: (context, index) {
-                      return BlocBuilder<DashboardCubit, int?>(
-                        builder: (BuildContext context, state) {
-                          bool isActive = state == index;
-                          return OptionsCard(
-                            letter: optionsLetters[index],
-                            title: options[index],
-                            isActive: isActive,
-                            onTap: () {
-                              context.read<DashboardCubit>().setActive(index);
+                left: 0,
+                right: 0,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    children: [
+                      Text(
+                        '“Mine is definitely the peace in the morning.”',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color:
+                              StrollColors.strollPurpleShade2.withOpacity(0.7),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                      GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: options.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
+                          childAspectRatio: 2.5,
+                        ),
+                        itemBuilder: (context, index) {
+                          return BlocBuilder<DashboardCubit, int?>(
+                            builder: (BuildContext context, state) {
+                              bool isActive = state == index;
+                              return OptionsCard(
+                                letter: optionsLetters[index],
+                                title: options[index],
+                                isActive: isActive,
+                                onTap: () {
+                                  context
+                                      .read<DashboardCubit>()
+                                      .setActive(index);
+                                },
+                              );
                             },
                           );
                         },
-                      );
-                    },
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        children: [
+                          const Expanded(
+                            child: Text(
+                                "Pick your option. \nSee who has a similar mind.",
+                                style: TextStyle(
+                                  color: StrollColors.strollWhiteShade,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                )),
+                          ),
+                          Row(
+                            children: [
+                              SvgPicture.asset(Assets.speaker),
+                              const SizedBox(width: 5),
+                              SvgPicture.asset(Assets.rightArrowBg),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),
-              Positioned(
-                top: screenHeight * 0.55 + 260,
-                left: 20,
-                right: 20,
-                child: Row(
-                  children: [
-                    const Text(
-                        "Pick your option. \nSee who has a similar mind.",
-                        style: TextStyle(
-                          color: StrollColors.strollWhiteShade,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                        )),
-                    const Spacer(),
-                    Row(
-                      children: [
-                        SvgPicture.asset(Assets.speaker),
-                        const SizedBox(width: 5),
-                        SvgPicture.asset(Assets.rightArrowBg),
-                      ],
-                    )
-                  ],
-                ),
-              )
             ],
           ),
         ),
