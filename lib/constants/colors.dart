@@ -8,6 +8,8 @@ abstract class StrollColors {
   static const strollPurpleShade = Color(0xFFCCC8FF);
   static const strollPurpleShade2 = Color(0xFFCBC9FF);
   static const blackBg = Color(0xFF0F1115);
+  static const blackBgShade = Color(0xFF07030E);
+  static const blackBgShade2 = Color(0xFF121518);
   static const strollGrey = Color(0xFF232A2E);
   static const strollGreyShade = Color(0xFFC4C4C4);
 }

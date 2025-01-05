@@ -66,30 +66,21 @@ class _DashboardState extends State<Dashboard> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const Text(
-                        'Stroll Bonfire',
+                        "Stroll Bonfire",
                         style: TextStyle(
-                          fontSize: 34,
-                          fontWeight: FontWeight.w700,
-                          color: StrollColors.strollPurpleShade,
-                          shadows: [
-                            Shadow(
-                              color: Color(0x33000000),
-                              blurRadius: 10,
-                            ),
-                            Shadow(
-                              color: Color(0xFFBEBEBE),
-                              blurRadius: 3,
-                            ),
-                            Shadow(
-                              color: Color(0x8024232F),
-                              blurRadius: 4,
-                            ),
-                            Shadow(
-                              color: Color(0xFFB3ADF6),
-                              blurRadius: 1.5,
-                            ),
-                          ],
-                        ),
+                            color: StrollColors.strollPurpleShade,
+                            fontSize: 35,
+                            shadows: [
+                              BoxShadow(
+                                  color: StrollColors.blackBgShade,
+                                  blurRadius: 10,
+                                  spreadRadius: 3),
+                              BoxShadow(
+                                  color: StrollColors.strollPurpleShade,
+                                  blurRadius: 10,
+                                  spreadRadius: 4)
+                            ],
+                            fontWeight: FontWeight.w700),
                       ),
                       const SizedBox(width: 10),
                       SvgPicture.asset(Assets.caretDown),
@@ -105,7 +96,12 @@ class _DashboardState extends State<Dashboard> {
                       const Text('22h 00m',
                           style: TextStyle(
                               color: StrollColors.strollWhite,
-                              fontSize: 12,
+                              shadows: const [
+                                BoxShadow(
+                                    color: StrollColors.blackBgShade,
+                                    blurRadius: 2,
+                                    spreadRadius: 3),
+                              ],
                               fontWeight: FontWeight.w600)),
                       const SizedBox(width: 12),
                       SvgPicture.asset(Assets.people),
@@ -113,7 +109,12 @@ class _DashboardState extends State<Dashboard> {
                       const Text('103',
                           style: TextStyle(
                               color: StrollColors.strollWhite,
-                              fontSize: 12,
+                              shadows: const [
+                                BoxShadow(
+                                    color: StrollColors.blackBgShade,
+                                    blurRadius: 2,
+                                    spreadRadius: 3),
+                              ],
                               fontWeight: FontWeight.w600))
                     ],
                   ),
@@ -121,39 +122,58 @@ class _DashboardState extends State<Dashboard> {
               ),
               // Human image and text remain positioned
               Positioned(
-                top: (screenHeight * 0.55) - 90,
+                top: (screenHeight * 0.55) - 80,
                 left: 20,
-                child: CircleAvatar(
-                  radius: 45,
-                  backgroundColor: Colors.transparent,
-                  child: ClipOval(
-                    child: Image.asset(
-                      Assets.human,
-                      fit: BoxFit.cover,
-                      width: 60,
-                      height: 60,
+                child: Container(
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: StrollColors.blackBgShade2.withOpacity(0.9),
+                  ),
+                  child: CircleAvatar(
+                    radius: 50,
+                    backgroundColor: Colors.transparent,
+                    child: ClipOval(
+                      child: Image.asset(
+                        Assets.human,
+                        fit: BoxFit.cover,
+                        width: 60,
+                        height: 60,
+                      ),
                     ),
                   ),
                 ),
               ),
               Positioned(
-                top: (screenHeight * 0.55) - 60,
-                left: 20 + 90,
-                child: const Text(
-                  'Angelina, 28',
-                  style: TextStyle(
-                    color: StrollColors.strollWhite,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 11,
+                top: (screenHeight * 0.55) - 63,
+                left: 20 + 70,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(12.0), // Round top-right corner
+                      bottomRight: Radius.circular(12.0),
+                    ),
+                    color: StrollColors.blackBgShade2.withOpacity(0.9),
+                  ),
+                  padding: const EdgeInsets.only(
+                      left: 8.0, right: 8.0, top: 6, bottom: 6),
+                  child: const Text(
+                    'Angelina, 28',
+                    style: TextStyle(
+                      color: StrollColors.strollWhite,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 11,
+                    ),
                   ),
                 ),
               ),
               Positioned(
                 top: screenHeight * 0.51,
-                left: 120,
+                left: 100,
                 right: 20,
                 child: const Text(
-                  'What is your favorite time of the day?',
+                  'What is your favorite time \nof the day?',
                   textAlign: TextAlign.start,
                   style: TextStyle(
                     color: StrollColors.strollWhite,
@@ -163,7 +183,7 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
               Positioned(
-                top: screenHeight * 0.55 + 30,
+                top: screenHeight * 0.55 + 23,
                 left: 0,
                 right: 0,
                 child: Padding(
