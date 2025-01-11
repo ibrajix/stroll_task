@@ -6,7 +6,7 @@
 ### App view on iPhone (Implementation) 🌈
 https://github.com/user-attachments/assets/62614bc7-0850-4a97-b3c7-266c3b4d1517
 
-### App Screenshots (iPhone & Android) 🌈
+### App Screenshots (iPhone & Android)
 
 <p>
     <img src="https://github.com/user-attachments/assets/5983b2b5-bc32-4664-8454-d72dae2dc9dc" width="200px" hspace="10"/>
