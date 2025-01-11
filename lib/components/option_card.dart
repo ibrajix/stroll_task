@@ -22,7 +22,7 @@ class OptionsCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 13),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         decoration: BoxDecoration(
           color: StrollColors.strollGrey,
           border: Border.all(
@@ -46,15 +46,15 @@ class OptionsCard extends StatelessWidget {
               CircleButton(letter: letter, isActive: isActive, onTap: onTap),
               const SizedBox(width: 10),
               Expanded(
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: StrollColors.strollGreyShade,
-                  ),
+                  child: Text(
+                title,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  height: 1.2,
+                  color: StrollColors.strollGreyShade,
                 ),
-              ),
+              )),
             ],
           ),
         ),

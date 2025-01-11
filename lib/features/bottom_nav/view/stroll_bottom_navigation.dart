@@ -1,4 +1,3 @@
-import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -47,43 +46,55 @@ class _StrollBottomNavigationState extends State<StrollBottomNavigation> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: SvgPicture.asset(
-                Assets.home,
-              ),
+            icon: SvgPicture.asset(
+              Assets.home,
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: SvgPicture.asset(
-                  Assets.bonfire,
-                )),
+            icon: SvgPicture.asset(
+              Assets.bonfire,
+            ),
             label: 'Trending',
           ),
           BottomNavigationBarItem(
-            icon: badges.Badge(
-              position: badges.BadgePosition.topEnd(top: -1, end: -1),
-              badgeStyle: badges.BadgeStyle(
-                badgeColor: StrollColors.strollPurple,
-                borderRadius: BorderRadius.circular(0.2),
+            icon: Stack(children: [
+              SvgPicture.asset(Assets.chat),
+              Positioned(
+                right: 0,
+                top: 8,
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 1, horizontal: 3),
+                  decoration: BoxDecoration(
+                    color: StrollColors.strollPurple,
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                        width: 1.4, color: StrollColors.strollPurple),
+                  ),
+                  child: const Center(
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 1),
+                      child: Text(
+                        '10',
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: TextStyle(
+                          fontSize: 7,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
-              badgeContent: const Text(
-                '10',
-                style: TextStyle(fontSize: 10),
-              ),
-              child: SvgPicture.asset(
-                Assets.chat,
-              ),
-            ),
+            ]),
             label: 'Message',
           ),
           BottomNavigationBarItem(
-            icon: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: SvgPicture.asset(Assets.user)),
+            icon: SvgPicture.asset(Assets.user),
             label: 'Profile',
           ),
         ],

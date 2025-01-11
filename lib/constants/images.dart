@@ -19,4 +19,5 @@ class Assets {
   static const homeBg = "$otherImage/home_bg.png";
   static const human = "$otherImage/human.png";
   static const strollLogo = "$otherImage/stroll_logo.png";
+  static const headerStroll = "$otherImage/header.png";
 }
