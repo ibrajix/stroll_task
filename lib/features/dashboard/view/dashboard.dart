@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stroll_task/components/custom_shadow_icon_text.dart';
@@ -50,7 +51,7 @@ class _DashboardState extends State<Dashboard> {
           Image.asset(
             Assets.homeBg,
             fit: BoxFit.cover,
-          ),
+          ).animate().fadeIn(duration: 600.ms),
           GradientBackground(
               child: SafeArea(
                   child: Column(
@@ -66,17 +67,23 @@ class _DashboardState extends State<Dashboard> {
                       Image.asset(
                         Assets.headerStroll,
                         width: 200,
-                      ),
+                      ).animate().fadeIn(duration: 800.ms).scale(),
                     ],
                   ),
                   const SizedBox(height: 6),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      CustomShadowIconText(icon: Assets.timer, text: '22h 00m'),
-                      SizedBox(width: 9),
-                      CustomShadowIconText(icon: Assets.people, text: '103')
+                      const CustomShadowIconText(
+                              icon: Assets.timer, text: '22h 00m')
+                          .animate()
+                          .slideY(begin: -1, duration: 600.ms),
+                      const SizedBox(width: 9),
+                      const CustomShadowIconText(
+                              icon: Assets.people, text: '103')
+                          .animate()
+                          .slideY(begin: -1, duration: 600.ms, delay: 100.ms)
                     ],
                   ),
                 ],
@@ -181,7 +188,10 @@ class _DashboardState extends State<Dashboard> {
                             onTap: () {
                               context.read<DashboardCubit>().setActive(index);
                             },
-                          );
+                          )
+                              .animate()
+                              .fadeIn(duration: 500.ms, delay: (index * 100).ms)
+                              .scale();
                         },
                       );
                     },
@@ -201,14 +211,14 @@ class _DashboardState extends State<Dashboard> {
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
                           )),
-                    ),
+                    ).animate().slideY(begin: 1, duration: 600.ms).fadeIn(),
                     Row(
                       children: [
                         SvgPicture.asset(Assets.speaker),
                         const SizedBox(width: 5),
                         SvgPicture.asset(Assets.rightArrowBg),
                       ],
-                    ),
+                    ).animate().fadeIn(duration: 500.ms),
                   ],
                 ),
               ),
